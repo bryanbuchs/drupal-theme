@@ -1,6 +1,0 @@
-paragraph-cards:
-  css:
-    theme:
-      dist/paragraph-cards/paragraph-cards.css: {}
-  js:
-    dist/paragraph-cards/paragraph-cards.js: {}

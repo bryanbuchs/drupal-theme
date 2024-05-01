@@ -1,6 +1,0 @@
-entity-card:
-  css:
-    theme:
-      dist/entity-card/entity-card.css: {}
-  js:
-    dist/entity-card/entity-card.js: {}

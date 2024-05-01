@@ -1,1 +1,0 @@
-import './entity-card.less'
