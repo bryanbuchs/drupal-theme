@@ -22,3 +22,5 @@
 - [x] `npm start` runs the watch task and starts a browsersync instance with a proxy to a lando server
 - [x] remove empty build files (`[name]/[name].js`) for css-only components
 - [x] add storybook config
+- [ ] troubleshoot storybook controls (https://github.com/bryanbuchs/drupal-theme/issues/1)
+- [ ] add default Drupal theme assets (https://github.com/bryanbuchs/drupal-theme/issues/2)
