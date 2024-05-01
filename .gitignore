@@ -1,4 +1,5 @@
 node_modules
-dist
-components
+#dist
+#components
+
 *storybook.log
