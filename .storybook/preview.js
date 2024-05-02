@@ -1,18 +1,7 @@
-// Drupal libs
-// import 'jquery'
-// import 'Drupal/misc/drupal.js'
-// import 'Drupal/misc/drupal.init.js'
-// import 'Drupal/misc/drupalSettingsLoader.js'
-// import 'Drupal/modules/system/css/components/hidden.module.css'
-// import 'Drupal/modules/system/css/components/js.module.css'
-// import once from '@drupal/once'
-// global.once = once
-
 // global styles from our theme
+// ...
 
-// storybook previe
-// import '../../../contrib/gin/dist/css/theme/variables.css'
-// import '../../../contrib/gin/dist/css/theme/accent.css'
+// storybook preview
 import './prevent-default.js'
 import './preview.less'
 
@@ -29,7 +18,7 @@ export const parameters = {
         'Nav',
         'Block',
         'Region',
-        'View',
+        'View'
       ]
     }
   },
@@ -50,27 +39,25 @@ export const parameters = {
   controls: { hideNoControlsWarning: true }
 }
 
-// const argTypes = {}
-// const hideControls = [
-//   'attributes',
-//   'media',
-//   'config',
-//   'table',
-//   'rows',
-//   'cards',
-//   'menu',
-//   'image',
-//   'video'
-// ]
-// hideControls.forEach((key) => {
-//   argTypes[key] = {
-//     table: {
-//       disable: true
-//     }
-//   }
-// })
-
-// export { argTypes }
+export const argTypes = {}
+const hiddenControls = [
+  'attributes',
+  'media',
+  'config',
+  'table',
+  'rows',
+  'cards',
+  'menu',
+  'image',
+  'video'
+]
+hiddenControls.forEach((key) => {
+  argTypes[key] = {
+    table: {
+      disable: true
+    }
+  }
+})
 
 // export const decorators = [
 //   (story) =>

@@ -5,12 +5,10 @@ import fs from 'fs'
 import path from 'path'
 import pkg from './package.json'
 import VitePluginBrowserSync from 'vite-plugin-browser-sync'
-import twig from 'vite-plugin-twig-drupal'
 import lessPluginGlob from 'less-plugin-glob'
-// import { join } from 'node:path'
-// import DrupalAttribute from 'drupal-attribute'
 
-function getEntries(dir, parent = '') {
+// recursively get a list of all .library.js files in the /components directory
+function getEntries (dir, parent = '') {
   let entries = {}
   const files = fs.readdirSync(dir)
 
@@ -35,12 +33,12 @@ const entries = getEntries(componentsDir)
 // get a list of the folders in the /less/ directory and set up
 // an @import statement for each one using the glob plugin to
 // import all .less files in each folder
-function getLessImports() {
+function getLessImports () {
   const lessDir = path.resolve(__dirname, 'less')
   const imports = fs
     .readdirSync(lessDir)
-    .filter((file) => fs.statSync(path.join(lessDir, file)).isDirectory())
-    .map((dir) => `@import (reference) './less/${dir}/*.less';`)
+    .filter(file => fs.statSync(path.join(lessDir, file)).isDirectory())
+    .map(dir => `@import (reference) './less/${dir}/*.less';`)
 
   return imports.join('\n')
 }
@@ -69,7 +67,7 @@ export default defineConfig({
         dir: 'dist',
         entryFileNames: '[name]/[name].js',
         chunkFileNames: '[name]/[name].js',
-        assetFileNames: (assetInfo) => {
+        assetFileNames: assetInfo => {
           // set an output path for each asset depending on the file extension
           const extension = path.extname(assetInfo.name).slice(1)
           let fileNames = '[name]'
@@ -104,8 +102,9 @@ export default defineConfig({
       }
     }
   },
+
   plugins: [
-    banner((fileName) => {
+    banner(fileName => {
       const banner = `/**\n * DO NOT EDIT - GENERATED FROM SOURCE\n * file: ${fileName}\n * version: v${pkg.version}\n */`
       return banner
     }),
@@ -113,31 +112,6 @@ export default defineConfig({
       dev: { enable: false },
       preview: { enable: false },
       buildWatch: { enable: true, ...bsOptions }
-    }),
-    twig({
-      // namespaces: {
-      //   components: join(__dirname, 'components')
-      //   // Other namespaces as required.
-      // },
-      // functions: {
-      //   // You can add custom functions - each is a function that is passed the active Twig instance and should call
-      //   // e.g. extendFunction to register a function
-      //   create_attribute: (twigInstance) =>
-      //     twigInstance.extendFunction(
-      //       'create_attribute',
-      //       () => () => new DrupalAttribute()
-      //     ),
-      //   // e.g. extendFilter to register a filter
-      //   typography: (twigInstance) =>
-      //     twigInstance.extendFilter('typography', () => (text) => text),
-      //   clean_unique_id: (twigInstance) =>
-      //     twigInstance.extendFilter('clean_unique_id', () => (text) => text)
-      // },
-      // globalContext: {
-      //   // Global variables that should be present in all templates.
-      //   active_theme: pkg.name,
-      //   is_front_page: false
-      // }
     })
   ]
 })

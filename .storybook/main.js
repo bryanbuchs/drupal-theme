@@ -1,4 +1,12 @@
-const config = {
+import path from 'path'
+import twig from 'vite-plugin-twig-drupal'
+import DrupalAttribute from 'drupal-attribute'
+
+export default {
+  framework: {
+    name: '@storybook/html-vite',
+    options: {}
+  },
   stories: ['../components/**/*.stories.js'],
   staticDirs: ['../images'],
   addons: [
@@ -6,29 +14,24 @@ const config = {
     '@storybook/addon-backgrounds',
     '@storybook/addon-controls'
   ],
-  framework: {
-    name: '@storybook/html-vite',
-    options: {}
-  },
-  docs: {
-    autodocs: false
-  },
-  // https://www.previousnext.com.au/blog/drupal-front-end-nirvana-vite-twig-and-storybook
-  previewBody: body =>
-`${body}
-<script>
-  window.Drupal = window.Drupal || {behaviors: {}};
-  window.drupalSettings = Object.assign(window.drupalSettings || {}, {
-    // Mock any drupalSettings your behaviors need here.
-  });
-
-  // Mock Drupal's once library too.
-  window.once = (_, selector) => document.querySelectorAll(selector);
-  document.addEventListener('DOMContentLoaded', () => {
-    Object.entries(window.Drupal.behaviors).forEach(([key, object]) => object.attach(document));
-  })
-</script>
-  `
+  viteFinal: async (config, { configType }) => {
+    // resolve aliases to `@components` in *.stories.js files
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      '@components': path.resolve(__dirname, '../components')
+    }
+    config.plugins.push(twig({
+      // resolve aliases to `@components` in *.twig files
+      namespaces: {
+        components: path.resolve(__dirname, '../components')
+      },
+      // mock Drupal twig filters & functions
+      functions: {
+        create_attribute: (twigInstance) => twigInstance.extendFunction("create_attribute", () => new DrupalAttribute()),
+        typography: (twigInstance) => twigInstance.extendFilter("typography", (text) => text),
+        clean_unique_id: (twigInstance) => twigInstance.extendFilter("clean_unique_id", (text) => text),
+      }
+    }))
+    return config
+  }
 }
-
-export default config
