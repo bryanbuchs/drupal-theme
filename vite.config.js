@@ -1,14 +1,11 @@
 // vite.config.js
 import { defineConfig } from 'vite'
-import banner from 'vite-plugin-banner'
 import fs from 'fs'
-import path from 'path'
-import pkg from './package.json'
-import VitePluginBrowserSync from 'vite-plugin-browser-sync'
 import lessPluginGlob from 'less-plugin-glob'
+import path from 'path'
+import VitePluginBrowserSync from 'vite-plugin-browser-sync'
 
-// recursively get a list of all .library.js files in the /components directory
-function getEntries (dir, parent = '') {
+function getEntries(dir, parent = '') {
   let entries = {}
   const files = fs.readdirSync(dir)
 
@@ -33,85 +30,81 @@ const entries = getEntries(componentsDir)
 // get a list of the folders in the /less/ directory and set up
 // an @import statement for each one using the glob plugin to
 // import all .less files in each folder
-function getLessImports () {
+function getLessImports() {
   const lessDir = path.resolve(__dirname, 'less')
   const imports = fs
     .readdirSync(lessDir)
-    .filter(file => fs.statSync(path.join(lessDir, file)).isDirectory())
-    .map(dir => `@import (reference) './less/${dir}/*.less';`)
+    .filter((file) => fs.statSync(path.join(lessDir, file)).isDirectory())
+    .map((dir) => `@import (reference) './less/${dir}/*.less';`)
 
   return imports.join('\n')
-}
-
-const bsOptions = {
-  bs: {
-    ghostMode: false,
-    host: 'localhost',
-    port: 8008,
-    proxy: 'https://stanford-b2b.lndo.site',
-    open: true
-  }
 }
 
 export default defineConfig({
   base: './',
   build: {
     cssCodeSplit: true,
-    minify: false,
+    cssMinify: true,
+    minify: true,
     publicPath: '',
     reportCompressedSize: false,
-    // sourcemap: true,
     rollupOptions: {
       input: entries,
       output: {
         dir: 'dist',
         entryFileNames: '[name]/[name].js',
         chunkFileNames: '[name]/[name].js',
-        assetFileNames: assetInfo => {
+        assetFileNames: (assetInfo) => {
           // set an output path for each asset depending on the file extension
           const extension = path.extname(assetInfo.name).slice(1)
-          let fileNames = '[name]'
+          let group = '[name]'
 
           switch (extension) {
             case 'woff':
             case 'woff2':
-              fileNames = 'fonts'
+              group = 'webfonts'
               break
 
             case 'jpg':
             case 'gif':
             case 'png':
             case 'svg':
-              fileNames = 'images'
+              group = 'images'
               break
           }
 
-          return `${fileNames}/[name].[ext]`
+          return `${group}/[name].[ext]`
         }
       }
     }
   },
   css: {
-    // devSourcemap: true,
     preprocessorOptions: {
       less: {
         additionalData: getLessImports(),
         math: 'strict',
         plugins: [lessPluginGlob]
-        // sourceMap: true
       }
     }
   },
 
   plugins: [
-    banner(fileName => {
-      const banner = `/**\n * DO NOT EDIT - GENERATED FROM SOURCE\n * file: ${fileName}\n * version: v${pkg.version}\n */`
-      return banner
-    }),
     VitePluginBrowserSync({
       dev: { enable: false },
       preview: { enable: false },
-      buildWatch: { enable: true, ...bsOptions }
+      buildWatch: {
+        enable: true,
+        bs: {
+          host: 'localhost',
+          port: 8008,
+          proxy: 'https://stanford-b2b.lndo.site',
+          files: ['./dist', './templates'],
+          watchEvents: ['add', 'change', 'unlink', 'addDir', 'unlinkDir'],
+          ghostMode: false,
+          ui: false,
+          open: true
+        }
+      }
     })
   ]
 })
