@@ -28,7 +28,7 @@
     "postcss-url": "^10.1.3",
     "storybook": "^8.1.6",
     "vite": "^5.2.10",
-    "vite-plugin-browser-sync": "^3.0.2",
+    "vite-plugin-browser-sync": "^3.0.3",
     "vite-plugin-twig-drupal": "^1.3.0"
   }
 }
