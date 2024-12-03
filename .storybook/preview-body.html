@@ -1,0 +1,31 @@
+<script>
+  // Mock any drupalSettings your behaviors need here.
+  window.drupalSettings = Object.assign(window.drupalSettings || {}, {
+    site: {
+      name: 'Stanford Engineering Center for Global and Online Education'
+    },
+    marketo: {
+      key: '194-OCQ-487'
+    },
+    path: {
+      baseUrl: 'LINK'
+    },
+    insertSelector: '#storybook-root'
+  })
+
+  // mock drupal behaviors & once function
+  window.Drupal = window.Drupal || {
+    behaviors: {},
+    theme: {}
+  }
+  window.once = (_, selector) => document.querySelectorAll(selector)
+  document.addEventListener('DOMContentLoaded', () => {
+    Object.entries(window.Drupal.behaviors).forEach(([
+      key,
+      object
+    ]) => object.attach(document, drupalSettings))
+  })
+</script>
+
+<!-- libraries loaded from CDNs here -->
+<script src="https://app-ab15.marketo.com/js/forms2/js/forms2.min.js"></script>

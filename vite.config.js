@@ -5,6 +5,13 @@ import lessPluginGlob from 'less-plugin-glob'
 import path from 'path'
 import VitePluginBrowserSync from 'vite-plugin-browser-sync'
 
+// this is walking through all the directories in the /components folder
+// and creating an entry for each *.library.js file it finds. These are
+// then used as the entry points for the build, and each is exported to
+// the dist folder with the same name as the directory it was found in.
+// SOMETIMES vite will decide to add an extra dist folder for imported
+// modules that are dynamically imported at runtime. Always add the
+// entire contents of the dist folder to the repository.
 function getEntries(dir, parent = '') {
   let entries = {}
   const files = fs.readdirSync(dir)
@@ -47,7 +54,7 @@ export default defineConfig({
     cssMinify: true,
     minify: true,
     publicPath: '',
-    reportCompressedSize: false,
+    reportCompressedSize: true,
     rollupOptions: {
       input: entries,
       output: {
@@ -96,8 +103,7 @@ export default defineConfig({
         enable: true,
         bs: {
           host: 'localhost',
-          port: 8008,
-          proxy: 'https://stanford-b2b.lndo.site',
+          proxy: 'https://CHANGME.lndo.site',
           files: ['./dist', './templates'],
           watchEvents: ['add', 'change', 'unlink', 'addDir', 'unlinkDir'],
           ghostMode: false,

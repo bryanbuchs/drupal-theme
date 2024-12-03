@@ -1,10 +1,20 @@
 // import some stylesheets used by Drupal
-// @import (less) '../../../../core/modules/system/css/components/hidden.module.css';
-// @import (less) '../../../../core/modules/system/css/components/js.module.css';
+@import (less) './hidden.module.css';
+@import (less) './js.module.css';
+
 // @import (less) '../../../contrib/gin/dist/css/theme/variables.css';
 // @import (less) '../../../contrib/gin/dist/css/theme/accent.css';
 
 .sb-show-main,
 .sb-show-main #storybook-root {
   transition: unset;
+  max-width: 100dvw;
+  overflow-x: clip;
+}
+
+.fpo {
+  margin: 0;
+  padding: 1rem;
+  background-color: silver;
+  text-align: center;
 }

@@ -1,5 +1,9 @@
 node_modules
-#dist
-#components
+.jekyll-metadata
+*.log
+storybook-static
+.vscode
 
-*storybook.log
+# @TODO: remove these from .gitignore after cloning this repo
+dist
+components
