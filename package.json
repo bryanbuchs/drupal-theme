@@ -19,7 +19,7 @@
     "@storybook/addon-backgrounds": "^8.4.5",
     "@storybook/addon-controls": "^8.4.5",
     "@storybook/html": "^8.4.5",
-    "@storybook/html-vite": "^8.4.5",
+    "@storybook/html-vite": "^8.4.7",
     "autoprefixer": "^10.4.20",
     "chokidar-cli": "^3.0.0",
     "drupal-attribute": "^1.1.0",
