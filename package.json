@@ -38,6 +38,6 @@
     "vite": "^6.0.2"
   },
   "optionalDependencies": {
-    "@esbuild/darwin-arm64": "^0.24.0"
+    "@esbuild/darwin-arm64": "^0.24.2"
   }
 }
