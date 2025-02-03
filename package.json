@@ -15,7 +15,7 @@
   },
   "devDependencies": {
     "@faker-js/faker": "^9.2.0",
-    "@storybook/addon-a11y": "^8.4.5",
+    "@storybook/addon-a11y": "^8.5.3",
     "@storybook/addon-backgrounds": "^8.4.7",
     "@storybook/addon-controls": "^8.4.5",
     "@storybook/html": "^8.4.5",
