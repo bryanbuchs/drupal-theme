@@ -14,7 +14,7 @@
     "build-storybook": "storybook build --test"
   },
   "devDependencies": {
-    "@faker-js/faker": "^9.2.0",
+    "@faker-js/faker": "^9.6.0",
     "@storybook/addon-a11y": "^8.5.6",
     "@storybook/addon-backgrounds": "^8.4.7",
     "@storybook/addon-controls": "^8.4.5",
