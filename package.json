@@ -7,8 +7,8 @@
   "license": "UNLICENSED",
   "private": true,
   "scripts": {
-    "build": "vite build && node post-build.js",
-    "cleanup": "node post-build.js",
+    "build": "vite build && node ./utils/post-build.js",
+    "cleanup": "node ./utils/post-build.js",
     "start": "vite build --watch & chokidar 'dist/**/*' -c 'node post-build.js' -s > /dev/null 2>&1",
     "storybook": "storybook dev --disable-telemetry",
     "build-storybook": "storybook build --test"
@@ -27,15 +27,11 @@
     "less-plugin-glob": "^3.0.0",
     "postcss": "^8.5.3",
     "postcss-inline-svg": "github:bryanbuchs/postcss-inline-svg",
-    "postcss-url": "^10.1.3",
     "storybook": "^8.4.7",
     "title-case": "^4.3.2",
     "vite": "^6.0.2",
     "vite-plugin-browser-sync": "^4.0.0",
     "vite-plugin-twig-drupal": "^1.6.0"
-  },
-  "overrides": {
-    "vite": "^6.0.2"
   },
   "optionalDependencies": {
     "@esbuild/darwin-arm64": "^0.25.0"

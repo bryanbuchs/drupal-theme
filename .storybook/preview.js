@@ -11,7 +11,6 @@
 // import "../components/paragraph-headings/paragraph-headings.library.js"
 
 // storybook preview
-import './gin-variables.css'
 import './prevent-default.js'
 import './preview.less'
 

@@ -1,3 +1,15 @@
+/**
+ * Generates a placeholder image as a data URL in SVG format.
+ *
+ * @param {number} width - The width of the placeholder image.
+ * @param {number} height - The height of the placeholder image.
+ * @param {Object} [options={}] - Optional configuration for the placeholder.
+ * @param {string} [options.background='ccc'] - The background color of the placeholder in hex format (without the `#`).
+ * @param {string} [options.foreground='999'] - The foreground (text) color of the placeholder in hex format (without the `#`).
+ * @param {string} [options.text=`${width} x ${height}`] - The text to display in the placeholder.
+ * @param {number} [options.fontSize=50] - The font size of the text in the placeholder.
+ * @returns {string} A data URL representing the placeholder image in SVG format.
+ */
 const placeholderSrc = (width, height, options = {}) => {
   const opts = {
     background: 'ccc',

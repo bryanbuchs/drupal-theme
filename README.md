@@ -11,7 +11,7 @@ This repo is limited to the dependencies and configuration to build CSS/JS files
 ## Notes
 
 * `components` are expected to follow the conventions from https://github.com/bryanbuchs/generator-component (`yo generate component`)
-* Vite will look for `components/**/*.library.js` files and the results of each will be compiled to their own `dist` files.
+* Vite will look for `components/**/*.library.js` files and the results of each will be compiled to the `dist` directory, and will be registered as libraries for the corresponding SDC.
 * The mixin and settings files in the root `less` directory are automatically loaded when processing LESS.
 * Images smaller than 10kb referenced in CSS/LESS will be inlined as data-url in the compiled CSS.
 * SVGs can be inlined the same way, or by using [postcss-inline-svg](https://github.com/bryanbuchs/postcss-inline-svg) if fill/stroke colors need to be adjusted per-rule.

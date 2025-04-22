@@ -11,6 +11,19 @@ function isOnlyComments (content) {
   return noBlockComments.length === 0
 }
 
+/**
+ * Recursively removes JavaScript files from a directory if they contain only comments.
+ *
+ * @param {string} directory - The path to the directory to process.
+ *
+ * This function traverses the specified directory and its subdirectories,
+ * checking each `.js` file to determine if it contains only comments. If a file
+ * is found to contain only comments, it is deleted. Subdirectories are processed
+ * recursively.
+ *
+ * Note: The function assumes the existence of an `isOnlyComments` utility function
+ * that determines whether a file's content consists solely of comments.
+ */
 function removeCommentOnlyFiles (directory) {
   const files = fs.readdirSync(directory)
 
