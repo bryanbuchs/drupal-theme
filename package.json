@@ -29,7 +29,7 @@
     "postcss-inline-svg": "github:bryanbuchs/postcss-inline-svg",
     "storybook": "^8.4.7",
     "title-case": "^4.3.2",
-    "vite": "^6.0.2",
+    "vite": "^6.3.3",
     "vite-plugin-browser-sync": "^4.0.0",
     "vite-plugin-twig-drupal": "^1.6.0"
   },
