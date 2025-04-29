@@ -1,70 +1,44 @@
 // vite.config.js
 import { defineConfig } from 'vite'
 import fs from 'fs'
-import lessPluginGlob from 'less-plugin-glob'
-import path from 'path'
+import { resolve, basename, join} from 'path'
+import { globSync } from 'tinyglobby'
 import VitePluginBrowserSync from 'vite-plugin-browser-sync'
+import browserslist from 'browserslist-to-esbuild'
 
-function getEntries (dir, parent = '') {
-  let entries = {}
-  const files = fs.readdirSync(dir)
-
-  for (const file of files) {
-    const fullPath = path.join(dir, file)
-    const stat = fs.statSync(fullPath)
-
-    if (stat.isDirectory()) {
-      const newParent = parent ? `${parent}/${file}` : file
-      entries = { ...entries, ...getEntries(fullPath, newParent) }
-    } else if (file.endsWith('.library.js')) {
-      const name = `${path.basename(file, '.library.js')}`
-      entries[name] = fullPath
-    }
-  }
-  return entries
+const getEntries = () => {
+  const files = globSync(['components/**/*.library.js'], {})
+  return files.reduce((entries, file) => {
+    const name = basename(file, '.library.js')
+    entries[name] = file
+    return entries
+  }, {})
 }
-
-const componentsDir = path.resolve(__dirname, 'components')
-const entries = getEntries(componentsDir)
 
 // get a list of the folders in the /less/ directory and set up
 // an @import statement for each one using the glob plugin to
 // import all .less files in each folder
 function getLessImports () {
-  const lessDir = path.resolve(__dirname, 'less')
-  const imports = fs
-    .readdirSync(lessDir)
-    .filter(file => fs.statSync(path.join(lessDir, file)).isDirectory())
-    .map(dir => `@import (reference) './less/${dir}/*.less';`)
-
-  return imports.join('\n')
+  const files = globSync(['less/**/*.less'], {})
+  return files.map(file => `@import (reference) './${file}';`).join('\n')
 }
+
+console.log(getLessImports())
 
 function removeEmptyJsFiles () {
   return {
     name: 'remove-empty-js-files',
     closeBundle () {
-      const distDir = path.resolve(__dirname, 'components')
-      fs.readdirSync(distDir, { withFileTypes: true }).forEach(dirent => {
-        if (dirent.isDirectory()) {
-          const componentDir = path.join(distDir, dirent.name, 'dist')
-          if (fs.existsSync(componentDir)) {
-            fs.readdirSync(componentDir).forEach(file => {
-              if (file.endsWith('.js')) {
-                const filePath = path.join(componentDir, file)
-                const content = fs.readFileSync(filePath, 'utf-8')
-                if (content.trim() === '') {
-                  fs.unlinkSync(filePath)
-                }
-              }
-            })
-          }
+      const files = globSync(['dist/**/*.js'], {})
+      files.forEach(file => {
+        const content = fs.readFileSync(file, 'utf-8')
+        if (content.trim() === '') {
+          fs.unlinkSync(file)
         }
       })
     }
   }
 }
-
 
 // this will build the entry files in the components directory
 // - output to the dist directory
@@ -72,32 +46,28 @@ function removeEmptyJsFiles () {
 // - remove any empty .js files from the dist directory
 // - set up a browser sync server to watch for changes and reload the browser automatically
 
-export default defineConfig({
+export default defineConfig(({ mode }) => ({
   base: './',
   build: {
+    lib: {
+      entry: getEntries(),
+      formats: ['es'],
+    },
+    target: browserslist(),
     cssCodeSplit: true,
-    cssMinify: true,
-    minify: true,
-    publicPath: '',
-    reportCompressedSize: false,
-    emptyOutDir: true,
-    copyPublicDir: false,
+    outDir: resolve(import.meta.dirname, './dist'),
+    sourcemap: mode === 'development',
     rollupOptions: {
-      input: entries,
       output: {
-        dir: 'dist',
-        entryFileNames: '[name].js',
-        chunkFileNames: '[name].js',
-        assetFileNames: assetInfo => `[name].[ext]`
-      }
-    }
+        chunkFileNames: 'chunks/[name]-[hash].js',
+      },
+    },
   },
   css: {
     preprocessorOptions: {
       less: {
         additionalData: getLessImports(),
-        math: 'strict',
-        plugins: [lessPluginGlob]
+        math: 'strict'
       }
     }
   },
@@ -122,4 +92,4 @@ export default defineConfig({
     }),
     removeEmptyJsFiles()
   ]
-})
+}))

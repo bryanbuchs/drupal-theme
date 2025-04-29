@@ -1,8 +1,10 @@
 import autoprefixer from 'autoprefixer'
 import inlineSvg from 'postcss-inline-svg'
+import postcssPresetEnv from 'postcss-preset-env'
 
 export default {
   plugins: [
+    postcssPresetEnv(),
     inlineSvg({
       paths: [
         'node_modules/@fortawesome/fontawesome-free/svgs/',
