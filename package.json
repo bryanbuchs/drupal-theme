@@ -31,7 +31,7 @@
     "storybook": "^8.4.7",
     "tinyglobby": "^0.2.13",
     "title-case": "^4.3.2",
-    "vite": "^6.0.2",
+    "vite": "^6.3.3",
     "vite-plugin-browser-sync": "^4.0.0",
     "vite-plugin-twig-drupal": "^1.6.0"
   },
