@@ -20,12 +20,3 @@ This repo is limited to the dependencies and configuration to build CSS/JS files
   * the shared `/images` folder
   * installed in `node_modules`
   * A FontAwesome icon, using the pattern `[solid|regular|brands]/[icon].svg`
-
-## TODO
-
-- [x] `npm start` runs the watch task and starts a browsersync instance with a proxy to a lando server
-- [x] remove empty build files (`[name]/[name].js`) for css-only components
-- [x] add storybook config
-- [x] troubleshoot storybook controls (https://github.com/bryanbuchs/drupal-theme/issues/1)
-- [x] add default Drupal theme assets (https://github.com/bryanbuchs/drupal-theme/issues/2)
-- [ ] turn this into a legit starterkit theme (https://www.drupal.org/docs/core-modules-and-themes/core-themes/starterkit-theme#s-custom-starterkit-theme)
