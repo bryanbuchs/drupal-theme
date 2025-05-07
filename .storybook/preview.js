@@ -10,9 +10,17 @@
 // import '../components/paragraph-paragraph/paragraph-paragraph.library.js'
 // import "../components/paragraph-headings/paragraph-headings.library.js"
 
+
 // storybook preview
 import './prevent-default.js'
 import './preview.less'
+
+import { variables } from './tokens.js'
+
+// Add the variables as a style element to treat as CSS
+const styleElement = document.createElement('style')
+styleElement.textContent = variables
+document.head.appendChild(styleElement)
 
 // hide controls for specific arg names that are (a) other components or (b) complex arrays/objects that should not be editable
 const hiddenControls = [
@@ -61,7 +69,7 @@ const parameters = {
   backgrounds: {
     default: 'white',
     values: [
-      { name: 'white', value: '#ffffff' },
+      { name: 'white', value: '#ffffff' }
       // { name: 'theme-olive', value: '#707c36' },
       // { name: 'theme-plum', value: '#620059' },
       // { name: 'theme-lagunita', value: '#007c92' },
