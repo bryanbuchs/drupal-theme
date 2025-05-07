@@ -1,6 +1,10 @@
 import path from 'path'
+import { fileURLToPath } from 'url'
 import twig from 'vite-plugin-twig-drupal'
 import DrupalAttribute from 'drupal-attribute'
+
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
 
 export default {
   framework: {
@@ -18,11 +22,16 @@ export default {
   //   autodocs: false
   // },
   viteFinal: async (config, { configType }) => {
+    // resolve aliases to `@components` in *.stories.js files
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      '@components': path.resolve(__dirname, '../components')
+    }
     config.plugins.push(
       twig({
         // resolve aliases to `@components` in *.twig files
         namespaces: {
-          THEMENAME: path.resolve(__dirname, '../components')
+          components: path.resolve(__dirname, '../components')
         },
         // mock Drupal twig filters & functions
         functions: {

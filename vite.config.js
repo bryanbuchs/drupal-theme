@@ -1,10 +1,11 @@
 // vite.config.js
 import { defineConfig } from 'vite'
 import fs from 'fs'
-import { resolve, basename, join} from 'path'
+import { resolve, basename, extname } from 'path'
 import { globSync } from 'tinyglobby'
 import VitePluginBrowserSync from 'vite-plugin-browser-sync'
 import browserslist from 'browserslist-to-esbuild'
+import project from './package.json'
 
 const getEntries = () => {
   const files = globSync(['components/**/*.library.js'], {})
@@ -23,8 +24,6 @@ function getLessImports () {
   return files.map(file => `@import (reference) './${file}';`).join('\n')
 }
 
-console.log(getLessImports())
-
 function removeEmptyJsFiles () {
   return {
     name: 'remove-empty-js-files',
@@ -32,7 +31,13 @@ function removeEmptyJsFiles () {
       const files = globSync(['dist/**/*.js'], {})
       files.forEach(file => {
         const content = fs.readFileSync(file, 'utf-8')
-        if (content.trim() === '') {
+        // Strip all types of JavaScript/CSS comments and whitespace
+        const strippedContent = content
+          .replace(/\/\*[\s\S]*?\*\//g, '') // Remove multi-line comments
+          .replace(/\/\/.*/g, '') // Remove single-line comments
+          .trim()
+
+        if (strippedContent === '') {
           fs.unlinkSync(file)
         }
       })
@@ -49,19 +54,25 @@ function removeEmptyJsFiles () {
 export default defineConfig(({ mode }) => ({
   base: './',
   build: {
-    lib: {
-      entry: getEntries(),
-      formats: ['es'],
-    },
     target: browserslist(),
-    cssCodeSplit: true,
     outDir: resolve(import.meta.dirname, './dist'),
-    sourcemap: mode === 'development',
+    reportCompressedSize: false,
     rollupOptions: {
+      input: getEntries(),
       output: {
-        chunkFileNames: 'chunks/[name]-[hash].js',
-      },
-    },
+        entryFileNames: '[name].js',
+        chunkFileNames: '[name]-[hash].js',
+        assetFileNames: ({ name }) => {
+          const ext = extname(name)
+          switch (ext) {
+            case '.css':
+              return '[name].css'
+            default:
+              return '[name]-[hash][extname]'
+          }
+        }
+      }
+    }
   },
   css: {
     preprocessorOptions: {
@@ -81,7 +92,7 @@ export default defineConfig(({ mode }) => ({
         bs: {
           host: 'localhost',
           port: 8008,
-          proxy: 'https://CHANGEME.lndo.site',
+          proxy: `https://${project.name}.lndo.site`,
           files: ['./dist', './templates', './components/**/*.twig'],
           watchEvents: ['add', 'change', 'unlink', 'addDir', 'unlinkDir'],
           ghostMode: false,
