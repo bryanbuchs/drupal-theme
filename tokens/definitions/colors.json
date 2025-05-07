@@ -1,0 +1,24 @@
+{
+  "colors": {
+    "palo-alto": {
+      "$value": "#175e54",
+      "$type": "color"
+    },
+    "lagunita": {
+      "$value": "#007c92",
+      "$type": "color"
+    },
+    "poppy": {
+      "$value": "#e98300",
+      "$type": "color"
+    },
+    "fog-light": {
+      "$value": "#f4f4f4",
+      "$type": "color"
+    },
+    "digital-red": {
+      "$value": "#B1040E",
+      "$type": "color"
+    }
+  }
+}

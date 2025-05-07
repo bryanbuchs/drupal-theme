@@ -10,7 +10,8 @@
     "build": "vite build --logLevel 'warn' --minify",
     "start": "vite build --mode 'development' --sourcemap --watch",
     "storybook": "storybook dev --disable-telemetry --port 55555",
-    "build-storybook": "storybook build --test"
+    "build-storybook": "storybook build --test",
+    "build-tokens": "style-dictionary build --config ./style-dictionary.config.js"
   },
   "devDependencies": {
     "@faker-js/faker": "^9.7.0",
@@ -28,6 +29,7 @@
     "postcss-preset-env": "^10.1.6",
     "react-dom": "^19.1.0",
     "storybook": "^8.4.7",
+    "style-dictionary": "^4.4.0",
     "tinyglobby": "^0.2.13",
     "title-case": "^4.3.2",
     "vite": "^6.3.5",
@@ -36,5 +38,9 @@
   },
   "optionalDependencies": {
     "@esbuild/darwin-arm64": "^0.25.0"
+  },
+  "dependencies": {
+    "open-props": "^1.7.15",
+    "reasonable-colors": "^0.4.0"
   }
 }

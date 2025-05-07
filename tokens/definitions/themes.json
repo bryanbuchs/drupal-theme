@@ -1,0 +1,44 @@
+{
+  "themes": {
+    "lagunita": {
+      "background": {
+        "$value": "#007c92",
+        "$type": "color"
+      },
+      "text": {
+        "$value": "#ffffff",
+        "$type": "color"
+      }
+    },
+    "poppy": {
+      "background": {
+        "$value": "#e98300",
+        "$type": "color"
+      },
+      "text": {
+        "$value": "#ffffff",
+        "$type": "color"
+      }
+    },
+    "palo-alto": {
+      "background": {
+        "$value": "#175e54",
+        "$type": "color"
+      },
+      "text": {
+        "$value": "#ffffff",
+        "$type": "color"
+      }
+    },
+    "fog-light": {
+      "background": {
+        "$value": "#f4f4f4",
+        "$type": "color"
+      },
+      "text": {
+        "$value": "#ffffff",
+        "$type": "color"
+      }
+    }
+  }
+}
