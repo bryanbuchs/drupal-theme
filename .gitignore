@@ -7,4 +7,3 @@ storybook-static
 # @TODO: remove these from .gitignore after cloning this repo
 dist
 components
-tokens/css

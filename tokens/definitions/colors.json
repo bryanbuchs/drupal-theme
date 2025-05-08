@@ -19,6 +19,34 @@
     "digital-red": {
       "$value": "oklch(from #B1040E l c h)",
       "$type": "color"
+    },
+    "white": {
+      "$value": "oklch(from #ffffff l c h)",
+      "$type": "color"
+    },
+    "black": {
+      "$value": "oklch(from #2e2d29 l c h)",
+      "$type": "color"
+    },
+    "stone-dark": {
+      "$value": "oklch(from #544948 l c h)",
+      "$type": "color"
+    },
+    "palo-verde": {
+      "$value": "oklch(from #279989 l c h)",
+      "$type": "color"
+    },
+    "digital-blue-link": {
+      "$value": "oklch(from #006cb8 l c h)",
+      "$type": "color"
+    },
+    "olive": {
+      "$value": "oklch(from #8f993e l c h)",
+      "$type": "color"
+    },
+    "sky": {
+      "$value": "oklch(from #4298b5 l c h)",
+      "$type": "color"
     }
   }
 }

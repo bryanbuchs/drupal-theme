@@ -1,0 +1,28 @@
+/**
+ * Do not edit directly, this file was auto-generated.
+ */
+
+:root {
+  --colors-palo-alto: oklch(from #175e54 l c h);
+  --colors-lagunita: oklch(from #007c92 l c h);
+  --colors-poppy: oklch(from #e98300 l c h);
+  --colors-fog-light: oklch(from #f4f4f4 l c h);
+  --colors-digital-red: oklch(from #B1040E l c h);
+  --colors-white: oklch(from #ffffff l c h);
+  --colors-black: oklch(from #2e2d29 l c h);
+  --colors-stone-dark: oklch(from #544948 l c h);
+  --colors-palo-verde: oklch(from #279989 l c h);
+  --colors-digital-blue-link: oklch(from #006cb8 l c h);
+  --colors-olive: oklch(from #8f993e l c h);
+  --colors-sky: oklch(from #4298b5 l c h);
+  --themes-lagunita-background: oklch(from #007c92 l c h);
+  --themes-lagunita-text: #ffffff;
+  --themes-poppy-background: oklch(from #e98300 l c h);
+  --themes-poppy-text: #ffffff;
+  --themes-palo-alto-background: oklch(from #175e54 l c h);
+  --themes-palo-alto-text: #ffffff;
+  --themes-fog-light-background: oklch(from #f4f4f4 l c h);
+  --themes-fog-light-text: #ffffff;
+  --themes-digital-red-background: oklch(from #B1040E l c h);
+  --themes-digital-red-text: #ffffff;
+}
