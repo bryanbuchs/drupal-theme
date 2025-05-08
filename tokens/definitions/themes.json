@@ -2,7 +2,7 @@
   "themes": {
     "lagunita": {
       "background": {
-        "$value": "#007c92",
+        "$value":  "{colors.lagunita}",
         "$type": "color"
       },
       "text": {
@@ -12,7 +12,7 @@
     },
     "poppy": {
       "background": {
-        "$value": "#e98300",
+        "$value": "{colors.poppy}",
         "$type": "color"
       },
       "text": {
@@ -22,7 +22,7 @@
     },
     "palo-alto": {
       "background": {
-        "$value": "#175e54",
+        "$value": "{colors.palo-alto}",
         "$type": "color"
       },
       "text": {
@@ -32,7 +32,17 @@
     },
     "fog-light": {
       "background": {
-        "$value": "#f4f4f4",
+        "$value": "{colors.fog-light}",
+        "$type": "color"
+      },
+      "text": {
+        "$value": "#ffffff",
+        "$type": "color"
+      }
+    },
+    "digital-red": {
+      "background": {
+        "$value": "{colors.digital-red}",
         "$type": "color"
       },
       "text": {

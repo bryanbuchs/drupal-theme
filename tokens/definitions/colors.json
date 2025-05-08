@@ -1,23 +1,23 @@
 {
   "colors": {
     "palo-alto": {
-      "$value": "#175e54",
+      "$value": "oklch(from #175e54 l c h)",
       "$type": "color"
     },
     "lagunita": {
-      "$value": "#007c92",
+      "$value": "oklch(from #007c92 l c h)",
       "$type": "color"
     },
     "poppy": {
-      "$value": "#e98300",
+      "$value": "oklch(from #e98300 l c h)",
       "$type": "color"
     },
     "fog-light": {
-      "$value": "#f4f4f4",
+      "$value": "oklch(from #f4f4f4 l c h)",
       "$type": "color"
     },
     "digital-red": {
-      "$value": "#B1040E",
+      "$value": "oklch(from #B1040E l c h)",
       "$type": "color"
     }
   }
