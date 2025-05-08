@@ -5,6 +5,8 @@ import { resolve, basename, extname } from 'path'
 import { globSync } from 'tinyglobby'
 import VitePluginBrowserSync from 'vite-plugin-browser-sync'
 import browserslist from 'browserslist-to-esbuild'
+import StyleDictionary from 'style-dictionary'
+import sdConfig from './style-dictionary.config.js'
 import project from './package.json'
 
 const getEntries = () => {
@@ -45,11 +47,23 @@ function removeEmptyJsFiles () {
   }
 }
 
+function styleTokensPlugin () {
+  return {
+    name: 'style-tokens',
+    buildStart () {
+      // console.log('Building Style Dictionary tokens...')
+      const sd = new StyleDictionary(sdConfig)
+      sd.buildAllPlatforms()
+    }
+  }
+}
+
 // this will build the entry files in the components directory
-// - output to the dist directory
+// - build the style dictionary tokens to css/less files
+// - output component css/js to the dist directory
 // - copy the assets from the components directory to the dist directory
 // - remove any empty .js files from the dist directory
-// - set up a browser sync server to watch for changes and reload the browser automatically
+// - (watch mode) set up a browser sync server to watch for changes and reload the browser automatically
 
 export default defineConfig(({ mode }) => ({
   base: './',
@@ -84,6 +98,7 @@ export default defineConfig(({ mode }) => ({
   },
 
   plugins: [
+    styleTokensPlugin(),
     VitePluginBrowserSync({
       dev: { enable: false },
       preview: { enable: false },

@@ -7,7 +7,7 @@
   "license": "UNLICENSED",
   "private": true,
   "scripts": {
-    "build": "vite build --logLevel 'warn' --minify",
+    "build": "vite build --mode 'production' --minify",
     "start": "vite build --mode 'development' --sourcemap --watch",
     "storybook": "storybook dev --disable-telemetry --port 55555",
     "build-storybook": "storybook build --test",
