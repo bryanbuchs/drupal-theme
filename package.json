@@ -30,7 +30,7 @@
     "postcss-preset-env": "^10.1.6",
     "react-dom": "^19.1.0",
     "storybook": "^8.4.7",
-    "style-dictionary": "^4.4.0",
+    "style-dictionary": "^5.0.0",
     "tinyglobby": "^0.2.13",
     "title-case": "^4.3.2",
     "vite": "^6.3.5",
