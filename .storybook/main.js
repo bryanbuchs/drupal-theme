@@ -13,11 +13,7 @@ export default {
   },
   stories: ['../components/**/*.stories.js'],
   staticDirs: ['../images'],
-  addons: [
-    '@storybook/addon-backgrounds',
-    '@storybook/addon-controls',
-    '@storybook/addon-a11y'
-  ],
+  addons: ['@storybook/addon-a11y'],
   // docs: {
   //   autodocs: false
   // },
