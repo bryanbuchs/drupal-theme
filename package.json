@@ -29,7 +29,7 @@
     "style-dictionary": "^5.0.0",
     "tinyglobby": "^0.2.14",
     "title-case": "^4.3.2",
-    "vite": "^6.3.5",
+    "vite": "^7.0.2",
     "vite-plugin-browser-sync": "^4.0.0",
     "vite-plugin-twig-drupal": "^1.6.1"
   },
