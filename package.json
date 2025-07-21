@@ -34,7 +34,7 @@
     "vite-plugin-twig-drupal": "^1.6.1"
   },
   "optionalDependencies": {
-    "@esbuild/darwin-arm64": "^0.25.4"
+    "@esbuild/darwin-arm64": "^0.25.8"
   },
   "dependencies": {
     "open-props": "^1.7.15",
