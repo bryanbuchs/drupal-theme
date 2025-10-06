@@ -17,7 +17,7 @@
     "@bundled-es-modules/memfs": "^4.17.0",
     "@storybook/addon-a11y": "^9.0.15",
     "@storybook/html-vite": "^9.0.15",
-    "browserslist": "^4.25.1",
+    "browserslist": "^4.26.3",
     "browserslist-to-esbuild": "^2.1.1",
     "drupal-attribute": "^1.1.0",
     "less": "^4.3.0",
