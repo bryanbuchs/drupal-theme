@@ -23,7 +23,7 @@
     "less": "^4.3.0",
     "postcss": "^8.5.6",
     "postcss-inline-svg": "github:bryanbuchs/postcss-inline-svg",
-    "postcss-preset-env": "^10.2.4",
+    "postcss-preset-env": "^10.4.0",
     "react-dom": "^19.1.0",
     "storybook": "^9.0.15",
     "style-dictionary": "^5.0.4",
