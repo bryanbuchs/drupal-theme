@@ -74,6 +74,7 @@ export default defineConfig(({ mode }) => ({
     rollupOptions: {
       input: getEntries(),
       output: {
+        format: 'iife',
         entryFileNames: '[name].js',
         chunkFileNames: '[name]-[hash].js',
         assetFileNames: ({ name }) => {
