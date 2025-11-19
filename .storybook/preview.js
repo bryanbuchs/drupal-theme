@@ -67,17 +67,16 @@ const parameters = {
   },
 
   backgrounds: {
-    default: 'white',
-    values: [
-      { name: 'white', value: '#ffffff' }
-      // { name: 'theme-olive', value: '#707c36' },
+    options: {
+      white: // { name: 'theme-olive', value: '#707c36' },
       // { name: 'theme-plum', value: '#620059' },
       // { name: 'theme-lagunita', value: '#007c92' },
       // { name: 'paragraph-shaded', value: '#f4f4f4' },
       // { name: 'stone-light-75', value: '#dfdddd' },
       // { name: 'region-footer', value: '#2e2d29' },
       // { name: 'cardinal-red', value: '#8c1515' }
-    ]
+      { name: 'white', value: '#ffffff' }
+    }
   },
 
   controls: { disableSaveFromUI: true, sort: 'none' }
@@ -91,5 +90,11 @@ const decorators = [
 export default {
   parameters,
   decorators,
-  argTypes
-}
+  argTypes,
+
+  initialGlobals: {
+    backgrounds: {
+      value: 'white'
+    }
+  }
+};
