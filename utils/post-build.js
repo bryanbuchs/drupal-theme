@@ -3,7 +3,7 @@
 import fs from 'fs'
 import path from 'path'
 
-function isOnlyComments (content) {
+function isOnlyComments(content) {
   const noInlineComments = content.replace(/\/\/.*/g, '').trim()
   const noBlockComments = noInlineComments
     .replace(/\/\*[\s\S]*?\*\//g, '')
@@ -24,7 +24,7 @@ function isOnlyComments (content) {
  * Note: The function assumes the existence of an `isOnlyComments` utility function
  * that determines whether a file's content consists solely of comments.
  */
-function removeCommentOnlyFiles (directory) {
+function removeCommentOnlyFiles(directory) {
   const files = fs.readdirSync(directory)
 
   for (const file of files) {

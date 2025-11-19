@@ -16,7 +16,7 @@ const tokenModules = import.meta.glob('../tokens/definitions/*.json', {
   eager: true
 })
 
-const tokens = Object.entries(tokenModules).reduce((acc, [path, module]) => {
+const tokens = Object.entries(tokenModules).reduce((acc, [module]) => {
   return {
     ...acc,
     ...module.default

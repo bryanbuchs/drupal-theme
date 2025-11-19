@@ -1,5 +1,5 @@
 // This file has been automatically migrated to valid ESM format by Storybook.
-import path, { dirname } from 'path';
+import path from 'path'
 import { fileURLToPath } from 'url'
 import twig from 'vite-plugin-twig-drupal'
 import DrupalAttribute from 'drupal-attribute'
@@ -18,7 +18,7 @@ export default {
   // docs: {
   //   autodocs: false
   // },
-  viteFinal: async (config, { configType }) => {
+  viteFinal: async config => {
     // resolve aliases to `@components` in *.stories.js files
     config.resolve.alias = {
       ...config.resolve.alias,
@@ -32,15 +32,15 @@ export default {
         },
         // mock Drupal twig filters & functions
         functions: {
-          create_attribute: (twigInstance) =>
+          create_attribute: twigInstance =>
             twigInstance.extendFunction(
               'create_attribute',
               () => new DrupalAttribute()
             ),
-          typography: (twigInstance) =>
-            twigInstance.extendFilter('typography', (text) => text),
-          clean_unique_id: (twigInstance) =>
-            twigInstance.extendFilter('clean_unique_id', (text) => text)
+          typography: twigInstance =>
+            twigInstance.extendFilter('typography', text => text),
+          clean_unique_id: twigInstance =>
+            twigInstance.extendFilter('clean_unique_id', text => text)
         }
       })
     )

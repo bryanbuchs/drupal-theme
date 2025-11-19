@@ -21,15 +21,15 @@ const getEntries = () => {
 // get a list of the folders in the /less/ directory and set up
 // an @import statement for each one using the glob plugin to
 // import all .less files in each folder
-function getLessImports () {
+function getLessImports() {
   const files = globSync(['less/**/*.less'], {})
   return files.map(file => `@import (reference) './${file}';`).join('\n')
 }
 
-function removeEmptyJsFiles () {
+function removeEmptyJsFiles() {
   return {
     name: 'remove-empty-js-files',
-    closeBundle () {
+    closeBundle() {
       const files = globSync(['dist/**/*.js'], {})
       files.forEach(file => {
         const content = fs.readFileSync(file, 'utf-8')
@@ -47,10 +47,10 @@ function removeEmptyJsFiles () {
   }
 }
 
-function styleTokensPlugin () {
+function styleTokensPlugin() {
   return {
     name: 'style-tokens',
-    buildStart () {
+    buildStart() {
       // console.log('Building Style Dictionary tokens...')
       const sd = new StyleDictionary(sdConfig)
       sd.buildAllPlatforms()
@@ -65,7 +65,7 @@ function styleTokensPlugin () {
 // - remove any empty .js files from the dist directory
 // - (watch mode) set up a browser sync server to watch for changes and reload the browser automatically
 
-export default defineConfig(({ mode }) => ({
+export default defineConfig(() => ({
   base: './',
   build: {
     target: browserslist(),
