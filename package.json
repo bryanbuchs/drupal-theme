@@ -60,7 +60,7 @@
     "@esbuild/darwin-arm64": "^0.25.10"
   },
   "dependencies": {
-    "open-props": "^1.7.15",
+    "open-props": "^1.7.16",
     "reasonable-colors": "^0.4.0"
   }
 }
