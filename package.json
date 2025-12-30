@@ -22,7 +22,7 @@
     "@commitlint/config-conventional": "^20.0.0",
     "@eslint/js": "^9.39.1",
     "@storybook/addon-a11y": "^10.0.8",
-    "@storybook/html-vite": "^10.0.8",
+    "@storybook/html-vite": "^10.1.11",
     "browserslist": "^4.25.1",
     "browserslist-to-esbuild": "^2.1.1",
     "drupal-attribute": "^1.2.1",
