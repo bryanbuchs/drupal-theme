@@ -36,7 +36,7 @@
     "eslint-plugin-storybook": "^10.1.11",
     "husky": "^9.1.7",
     "less": "^4.4.2",
-    "postcss": "^8.5.6",
+    "postcss": "^8.5.8",
     "postcss-inline-svg": "github:bryanbuchs/postcss-inline-svg",
     "postcss-preset-env": "^10.6.0",
     "postcss-utopia": "^1.1.0",
