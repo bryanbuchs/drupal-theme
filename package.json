@@ -35,7 +35,7 @@
     "eslint-plugin-promise": "^7.2.1",
     "eslint-plugin-storybook": "^10.1.11",
     "husky": "^9.1.7",
-    "less": "^4.4.2",
+    "less": "^4.6.4",
     "postcss": "^8.5.8",
     "postcss-inline-svg": "github:bryanbuchs/postcss-inline-svg",
     "postcss-preset-env": "^10.6.0",
