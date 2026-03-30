@@ -44,7 +44,7 @@
     "style-dictionary": "^5.3.3",
     "tinyglobby": "^0.2.14",
     "title-case": "^4.3.2",
-    "vite": "^7.3.0",
+    "vite": "^8.0.3",
     "vite-plugin-browser-sync": "^6.0.0",
     "vite-plugin-twig-drupal": "^1.6.2"
   },
