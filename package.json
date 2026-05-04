@@ -19,7 +19,7 @@
   "devDependencies": {
     "@bundled-es-modules/memfs": "^4.17.0",
     "@commitlint/cli": "^20.5.0",
-    "@commitlint/config-conventional": "^20.0.0",
+    "@commitlint/config-conventional": "^20.5.3",
     "@eslint/js": "^10.0.1",
     "@storybook/addon-a11y": "^10.1.11",
     "@storybook/html-vite": "^10.2.19",
