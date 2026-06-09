@@ -1,0 +1,31 @@
+/**
+ * Do not edit directly, this file was auto-generated.
+ */
+
+:root {
+  --colors-palo-alto: oklch(from #175e54 l c h);
+  --colors-lagunita: oklch(from #007c92 l c h);
+  --colors-poppy: oklch(from #e98300 l c h);
+  --colors-fog-light: oklch(from #f4f4f4 l c h);
+  --colors-digital-red: oklch(from #b1040e l c h);
+  --colors-white: oklch(from #ffffff l c h);
+  --colors-black: oklch(from #2e2d29 l c h);
+  --colors-stone-dark: oklch(from #544948 l c h);
+  --colors-palo-verde: oklch(from #279989 l c h);
+  --colors-digital-blue-link: oklch(from #006cb8 l c h);
+  --colors-olive: oklch(from #8f993e l c h);
+  --colors-sky: oklch(from #4298b5 l c h);
+  --colors-text-primary: var(--colors-black);
+  --colors-text-secondary: var(--colors-stone-dark);
+  --colors-link-default: var(--colors-digital-blue-link);
+  --colors-link-hover: var(--colors-lagunita);
+  --colors-focus-outline: var(--colors-black);
+  --colors-border-default: var(--colors-stone-dark);
+  --colors-border-light: var(--colors-fog-light);
+  --colors-background-light: var(--colors-fog-light);
+  --colors-validation-valid: var(--colors-palo-verde);
+  --colors-validation-invalid: var(--colors-digital-red);
+  --colors-warning: var(--colors-poppy);
+  --colors-input-border: var(--colors-stone-dark);
+  --colors-input-focus: var(--colors-focus-outline);
+}

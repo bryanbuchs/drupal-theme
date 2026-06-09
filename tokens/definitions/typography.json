@@ -1,0 +1,66 @@
+{
+  "fluid": {
+    "16-20": {
+      "$value": "clamp(16px, 12.8px + 0.5vw, 20px)",
+      "$type": "other"
+    },
+    "16-18": {
+      "$value": "clamp(16px, 14.4px + 0.25vw, 18px)",
+      "$type": "other"
+    },
+    "38-56": {
+      "$value": "clamp(38px, 23.6px + 2.25vw, 56px)",
+      "$type": "other"
+    }
+  },
+  "font": {
+    "family": {
+      "$value": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+      "$type": "other"
+    },
+    "weight": {
+      "normal": {
+        "$value": "400",
+        "$type": "other"
+      },
+      "medium": {
+        "$value": "500",
+        "$type": "other"
+      },
+      "bold": {
+        "$value": "700",
+        "$type": "other"
+      }
+    },
+    "size": {
+      "xs": {
+        "$value": "0.75rem",
+        "$type": "dimension"
+      },
+      "sm": {
+        "$value": "0.8rem",
+        "$type": "dimension"
+      },
+      "md": {
+        "$value": "0.875rem",
+        "$type": "dimension"
+      },
+      "lg": {
+        "$value": "1rem",
+        "$type": "dimension"
+      },
+      "xl": {
+        "$value": "1.25rem",
+        "$type": "dimension"
+      },
+      "2xl": {
+        "$value": "1.5625rem",
+        "$type": "dimension"
+      },
+      "3xl": {
+        "$value": "2rem",
+        "$type": "dimension"
+      }
+    }
+  }
+}

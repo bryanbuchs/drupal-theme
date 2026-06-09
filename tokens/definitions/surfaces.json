@@ -1,0 +1,60 @@
+{
+  "radius": {
+    "tiny": {
+      "$value": "0.2rem",
+      "$type": "dimension"
+    },
+    "small": {
+      "$value": "0.4rem",
+      "$type": "dimension"
+    },
+    "default": {
+      "$value": "0.6rem",
+      "$type": "dimension"
+    },
+    "big": {
+      "$value": "0.8rem",
+      "$type": "dimension"
+    },
+    "circle": {
+      "$value": "50%",
+      "$type": "other"
+    }
+  },
+  "z": {
+    "dropdown": {
+      "$value": "50",
+      "$type": "other"
+    },
+    "dropdown-trigger": {
+      "$value": "51",
+      "$type": "other"
+    },
+    "modal": {
+      "$value": "100",
+      "$type": "other"
+    },
+    "skip-link": {
+      "$value": "1000",
+      "$type": "other"
+    }
+  },
+  "shadow": {
+    "sm": {
+      "$value": "0 1px 2px rgba(0, 0, 0, 0.05)",
+      "$type": "other"
+    },
+    "md": {
+      "$value": "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)",
+      "$type": "other"
+    },
+    "lg": {
+      "$value": "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)",
+      "$type": "other"
+    },
+    "xl": {
+      "$value": "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1)",
+      "$type": "other"
+    }
+  }
+}

@@ -47,6 +47,72 @@
     "sky": {
       "$value": "oklch(from #4298b5 l c h)",
       "$type": "color"
+    },
+    "text": {
+      "primary": {
+        "$value": "{colors.black}",
+        "$type": "color"
+      },
+      "secondary": {
+        "$value": "{colors.stone-dark}",
+        "$type": "color"
+      }
+    },
+    "link": {
+      "default": {
+        "$value": "{colors.digital-blue-link}",
+        "$type": "color"
+      },
+      "hover": {
+        "$value": "{colors.lagunita}",
+        "$type": "color"
+      }
+    },
+    "focus": {
+      "outline": {
+        "$value": "{colors.black}",
+        "$type": "color"
+      }
+    },
+    "border": {
+      "default": {
+        "$value": "{colors.stone-dark}",
+        "$type": "color"
+      },
+      "light": {
+        "$value": "{colors.fog-light}",
+        "$type": "color"
+      }
+    },
+    "background": {
+      "light": {
+        "$value": "{colors.fog-light}",
+        "$type": "color"
+      }
+    },
+    "validation": {
+      "valid": {
+        "$value": "{colors.palo-verde}",
+        "$type": "color"
+      },
+      "invalid": {
+        "$value": "{colors.digital-red}",
+        "$type": "color"
+      }
+    },
+    "warning": {
+      "$value": "{colors.poppy}",
+      "$type": "color"
+    },
+    "input": {
+      "border": {
+        "$value": "{colors.stone-dark}",
+        "$type": "color"
+      },
+      "focus": {
+        "$value": "{colors.focus.outline}",
+        "$type": "color"
+      }
     }
   }
 }

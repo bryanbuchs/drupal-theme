@@ -1,0 +1,16 @@
+/**
+ * Do not edit directly, this file was auto-generated.
+ */
+
+:root {
+  --themes-lagunita-text: #ffffff;
+  --themes-poppy-text: #ffffff;
+  --themes-palo-alto-text: #ffffff;
+  --themes-fog-light-text: #ffffff;
+  --themes-digital-red-text: #ffffff;
+  --themes-lagunita-background: var(--colors-lagunita);
+  --themes-poppy-background: var(--colors-poppy);
+  --themes-palo-alto-background: var(--colors-palo-alto);
+  --themes-fog-light-background: var(--colors-fog-light);
+  --themes-digital-red-background: var(--colors-digital-red);
+}
