@@ -20,10 +20,12 @@ export default {
   // },
   viteFinal: async config => {
     // resolve aliases to `@components` in *.stories.js files
+    config.resolve ??= {}
     config.resolve.alias = {
       ...config.resolve.alias,
       '@components': path.resolve(__dirname, '../components')
     }
+    config.plugins ??= []
     config.plugins.push(
       twig({
         // resolve aliases to `@components` in *.twig files
