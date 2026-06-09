@@ -1,4 +1,5 @@
 {
+  "$schema": "./node_modules/oxfmt/configuration_schema.json",
   "semi": false,
   "singleQuote": true,
   "trailingComma": "none",
@@ -10,23 +11,30 @@
   "endOfLine": "lf",
   "quoteProps": "as-needed",
   "jsxSingleQuote": true,
-  "jsxBracketSameLine": false,
   "htmlWhitespaceSensitivity": "css",
   "vueIndentScriptAndStyle": false,
-  "embeddedLanguageFormatting": "auto",
   "singleAttributePerLine": false,
+  "sortPackageJson": false,
   "overrides": [
-    {
-      "files": ["*.html"],
-      "options": {
-        "parser": "html"
-      }
-    },
     {
       "files": ["*.css", "*.less"],
       "options": {
         "singleQuote": false
       }
     }
+  ],
+  "ignorePatterns": [
+    "node_modules",
+    "vendor",
+    "dist",
+    "build",
+    "public/build",
+    "*.min.js",
+    "*.min.css",
+    "coverage",
+    ".nyc_output",
+    "package-lock.json",
+    "yarn.lock",
+    "composer.lock"
   ]
 }
