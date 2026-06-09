@@ -4,7 +4,7 @@
   "private": true,
   "description": "component-driven development boilerplate for Drupal themes",
   "license": "UNLICENSED",
-  "author": "bryan@kapowinc.com",
+  "author": "bryan@bryanbuchs.com",
   "type": "module",
   "scripts": {
     "build": "vite build --mode 'production' --minify",
