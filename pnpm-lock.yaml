@@ -70,8 +70,8 @@ importers:
         specifier: ^4.3.2
         version: 4.3.2
       twig:
-        specifier: 1.17.1
-        version: 1.17.1
+        specifier: 3.0.0
+        version: 3.0.0
       vite:
         specifier: ^8.0.16
         version: 8.0.16(@types/node@25.9.2)(esbuild@0.27.7)(jiti@2.6.1)(less@4.6.4)(yaml@2.9.0)
@@ -1466,6 +1466,11 @@ packages:
     engines: {node: '>=0.4.0'}
     hasBin: true
 
+  acorn@8.17.0:
+    resolution: {integrity: sha512-xRQbDb9BnwDafYNn6Vwl839DYVjqXYb1XVGtWAZ1kcDc6iwAL4hg3B1dZlRiuENFeO2H53gFG3in621AdERVAg==}
+    engines: {node: '>=0.4.0'}
+    hasBin: true
+
   ajv@6.15.0:
     resolution: {integrity: sha512-fgFx7Hfoq60ytK2c7DhnF8jIvzYgOMxfugjLOSMHjLIPgenqa7S7oaagATUq99mV6IYvN2tRmC0wnTYX6iPbMw==}
 
@@ -2413,6 +2418,10 @@ packages:
     resolution: {integrity: sha512-v2iub44UtGpbIv+pFkkYhZ+JsbIM0bJsQcQ1+VayUNGVA/YhM8+CkBiRACcpuuE9Q0xI1pgNzGNwzZDCp1MCww==}
     engines: {node: '>= 10', yarn: '>= 1'}
 
+  locutus@3.0.36:
+    resolution: {integrity: sha512-ilsz33lqEd+KerV9JnSHM9EApVYOZ86/JTGKyafmWvhTFtjYauzT1WmZgdJ4JBGR3dY0N0PTfIq2uLvazw5QsQ==}
+    engines: {node: '>= 22', yarn: '>= 1'}
+
   lodash.clonedeep@4.5.0:
     resolution: {integrity: sha512-H5ZhCF25riFd9uB5UCkVKo61m3S/xZk1x4wA6yp/L3RFP6Z/eHH1ymQcGLo7J3GMPfm0V/7m1tryHuGVxpqEBQ==}
 
@@ -2477,9 +2486,6 @@ packages:
   minimatch@10.2.5:
     resolution: {integrity: sha512-MULkVLfKGYDFYejP07QOurDLLQpcjk7Fw+7jXS2R2czRQzR56yHRveU5NDJEOviH+hETZKSkIk5c+T23GjFUMg==}
     engines: {node: 18 || 20 || >=22}
-
-  minimatch@3.0.8:
-    resolution: {integrity: sha512-6FsRAQsxQ61mw+qP1ZzbL9Bc78x2p5OqNgNpnoAFLTrX8n5Kxph0CsnhmKKNXTWjXqU5L0pGPR7hYk+XWZr60Q==}
 
   minimatch@3.1.5:
     resolution: {integrity: sha512-VgjWUsnnT6n+NUk6eZq77zeFdpW2LWDzP6zFGrCbHXiYNul5Dzqk2HHQ5uFH2DNW5Xbp8+jVzaeNt94ssEEl4w==}
@@ -3005,9 +3011,9 @@ packages:
   tslib@2.8.1:
     resolution: {integrity: sha512-oJFu94HQb+KVduSUQL7wnpmqnfmLsOA/nAh6b6EH0wCEoK0/mPeXU6c3wKDV83MkOuHPRHtSXKKU99IBazS/2w==}
 
-  twig@1.17.1:
-    resolution: {integrity: sha512-atxccyr/BHtb1gPMA7Lvki0OuU17XBqHsNH9lzDHt9Rr1293EVZOosSZabEXz/DPVikIW8ZDqSkEddwyJnQN2w==}
-    engines: {node: '>=10'}
+  twig@3.0.0:
+    resolution: {integrity: sha512-cMfYLWAgdW15B7L5wmanmga113e4phQmo3rk5EFuUrQd99g7I3ncxgynS38P01m4ZXBDSdMYUTV1g3A66/Y56Q==}
+    engines: {node: '>=22'}
     hasBin: true
 
   type-check@0.4.0:
@@ -4268,11 +4274,13 @@ snapshots:
       mime-types: 2.1.35
       negotiator: 0.6.3
 
-  acorn-jsx@5.3.2(acorn@8.16.0):
+  acorn-jsx@5.3.2(acorn@8.17.0):
     dependencies:
-      acorn: 8.16.0
+      acorn: 8.17.0
 
   acorn@8.16.0: {}
+
+  acorn@8.17.0: {}
 
   ajv@6.15.0:
     dependencies:
@@ -4822,8 +4830,8 @@ snapshots:
 
   espree@10.4.0:
     dependencies:
-      acorn: 8.16.0
-      acorn-jsx: 5.3.2(acorn@8.16.0)
+      acorn: 8.17.0
+      acorn-jsx: 5.3.2(acorn@8.17.0)
       eslint-visitor-keys: 4.2.1
 
   esprima@4.0.1: {}
@@ -5230,6 +5238,8 @@ snapshots:
 
   locutus@2.0.39: {}
 
+  locutus@3.0.36: {}
+
   lodash.clonedeep@4.5.0: {}
 
   lodash.isfinite@3.3.2: {}
@@ -5289,10 +5299,6 @@ snapshots:
   minimatch@10.2.5:
     dependencies:
       brace-expansion: 5.0.6
-
-  minimatch@3.0.8:
-    dependencies:
-      brace-expansion: 1.1.15
 
   minimatch@3.1.5:
     dependencies:
@@ -5942,11 +5948,11 @@ snapshots:
 
   tslib@2.8.1: {}
 
-  twig@1.17.1:
+  twig@3.0.0:
     dependencies:
       '@babel/runtime': 7.29.7
-      locutus: 2.0.39
-      minimatch: 3.0.8
+      locutus: 3.0.36
+      minimatch: 10.2.5
       walk: 2.3.15
 
   type-check@0.4.0:
@@ -6021,7 +6027,7 @@ snapshots:
     dependencies:
       drupal-attribute: 1.2.1
       drupal-twig-extensions: 1.0.0-beta.5
-      twig: 1.17.1
+      twig: 3.0.0
       vite: 8.0.16(@types/node@25.9.2)(esbuild@0.27.7)(jiti@2.6.1)(less@4.6.4)(yaml@2.9.0)
 
   vite@8.0.16(@types/node@25.9.2)(esbuild@0.27.7)(jiti@2.6.1)(less@4.6.4)(yaml@2.9.0):
