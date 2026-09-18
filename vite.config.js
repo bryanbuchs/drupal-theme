@@ -2,7 +2,6 @@ import { defineConfig } from 'vite'
 import fs from 'fs'
 import { resolve, basename, extname } from 'path'
 import { globSync } from 'tinyglobby'
-import browserslist from 'browserslist-to-esbuild'
 
 function getEntries() {
   const files = globSync(['components/**/*.library.js'], {})
@@ -53,7 +52,6 @@ export default defineConfig(({ command }) => {
   return {
     base: './',
     build: {
-      target: browserslist(),
       outDir: resolve(import.meta.dirname, './dist'),
       reportCompressedSize: false,
       rollupOptions: {
