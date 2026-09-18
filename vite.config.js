@@ -1,13 +1,8 @@
 import { defineConfig } from 'vite'
 import fs from 'fs'
-// import { parse } from "yaml";
 import { resolve, basename, extname } from 'path'
 import { globSync } from 'tinyglobby'
-import VitePluginBrowserSync from 'vite-plugin-browser-sync'
 import browserslist from 'browserslist-to-esbuild'
-
-// const lando = parse(fs.readFileSync('../../../../.lando.yml', 'utf8'));
-const lando = { name: 'TEST' }
 
 function getEntries() {
   const files = globSync(['components/**/*.library.js'], {})
@@ -78,24 +73,6 @@ export default defineConfig(({ command }) => {
         }
       }
     },
-    plugins: [
-      VitePluginBrowserSync({
-        dev: { enable: false },
-        preview: { enable: false },
-        buildWatch: {
-          enable: process.env.BROWSERSYNC !== 'false',
-          bs: {
-            host: 'localhost',
-            proxy: `https://${lando.name}.lndo.site`,
-            files: ['./dist', './templates', './components'],
-            watchEvents: ['add', 'change', 'unlink', 'addDir', 'unlinkDir'],
-            ghostMode: false,
-            ui: false,
-            open: false
-          }
-        }
-      }),
-      removeEmptyJsFiles()
-    ]
+    plugins: [removeEmptyJsFiles()]
   }
 })

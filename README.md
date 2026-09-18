@@ -5,7 +5,6 @@ This repo is limited to the dependencies and configuration to build CSS/JS files
 ## Quick Start
 
 - `pnpm build` compiles and optimizes the output
-- `pnpm start` watches files for changes in any linked files (`import from...` or `background-image:...`), and compiles the results to `dist/`. Also starts a browsersync instance with a proxy to a lando server
 - `pnpm storybook` launches the storybook ui in a browser
 - `pnpm build:tokens` regenerates the token CSS (runs automatically before the commands above)
 
