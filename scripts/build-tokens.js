@@ -1,50 +1,35 @@
 import StyleDictionary from 'style-dictionary'
+import { basename, resolve } from 'path'
+import { globSync } from 'tinyglobby'
 
 const TOKENS_DIR = 'tokens/definitions'
 const OUTPUT_DIR = 'tokens/css'
 
-// Self-contained token files: each maps to its own CSS file.
-const cssFiles = ['colors', 'surfaces', 'typography']
+const definitions = globSync([`${TOKENS_DIR}/*.json`], {})
 
-for (const name of cssFiles) {
-  const sd = new StyleDictionary({
-    log: { verbosity: 'silent' },
-    source: [`${TOKENS_DIR}/${name}.json`],
-    platforms: {
-      css: {
-        transformGroup: 'css',
-        buildPath: `${OUTPUT_DIR}/`,
-        files: [
-          {
-            destination: `${name}.css`,
-            format: 'css/variables',
-            options: { outputReferences: true }
-          }
-        ]
-      }
-    }
-  })
-  await sd.buildAllPlatforms()
+if (definitions.length === 0) {
+  console.log(
+    `No token definitions found (${TOKENS_DIR}/*.json); nothing to build.`
+  )
+  process.exit(0)
 }
 
-// Themes reference palette colors, so the colors source must be present for
-// references to resolve, but only theme tokens are written to themes.css.
-const themesSd = new StyleDictionary({
+// Every definition is loaded as a source so tokens can reference each other
+// across files, and each definition is written to a CSS file of the same name.
+const sd = new StyleDictionary({
   log: { verbosity: 'silent' },
-  source: [`${TOKENS_DIR}/colors.json`, `${TOKENS_DIR}/themes.json`],
+  source: definitions,
   platforms: {
     css: {
       transformGroup: 'css',
       buildPath: `${OUTPUT_DIR}/`,
-      files: [
-        {
-          destination: 'themes.css',
-          format: 'css/variables',
-          filter: token => token.filePath.endsWith('themes.json'),
-          options: { outputReferences: true }
-        }
-      ]
+      files: definitions.map(definition => ({
+        destination: `${basename(definition, '.json')}.css`,
+        format: 'css/variables',
+        filter: token => resolve(token.filePath) === resolve(definition),
+        options: { outputReferences: true }
+      }))
     }
   }
 })
-await themesSd.buildAllPlatforms()
+await sd.buildAllPlatforms()

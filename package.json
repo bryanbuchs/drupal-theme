@@ -11,7 +11,7 @@
     "prebuild": "npm run build:tokens",
     "build:storybook": "storybook build --test",
     "build:tokens": "node scripts/build-tokens.js",
-    "postbuild:tokens": "oxfmt tokens/css/*.css",
+    "postbuild:tokens": "oxfmt --no-error-on-unmatched-pattern tokens/css",
     "lint": "oxlint components/",
     "lint:fix": "oxlint components/ --fix",
     "format": "oxfmt components/",
@@ -21,7 +21,6 @@
     "prestorybook": "npm run build:tokens"
   },
   "devDependencies": {
-    "@bundled-es-modules/memfs": "^4.17.0",
     "@commitlint/cli": "^21.2.2",
     "@commitlint/config-conventional": "^21.2.2",
     "@storybook/addon-a11y": "^10.6.0",

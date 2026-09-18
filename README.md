@@ -12,5 +12,6 @@ This repo is limited to the dependencies and configuration to build CSS/JS files
 
 - `components` are expected to follow the conventions from https://github.com/bryanbuchs/generator-component
 - Vite looks for `components/**/*.library.js` files and compiles each to the `dist` directory, registered as libraries for the corresponding SDC. The build exits cleanly when no entries are found.
-- Design tokens live in `tokens/definitions/*.json` and compile via Style Dictionary to one CSS file per group in `tokens/css/` (`colors`, `themes`, `surfaces`, `typography`).
+- Design tokens live in `tokens/definitions/*.json`. Style Dictionary compiles each one to a CSS file of the same name in `tokens/css/`, and tokens can reference each other across files. The build exits cleanly when no definitions are found.
+- `dist`, `components` and `tokens` are ignored in this repo. Remove them from `.gitignore` after cloning.
 - Small images referenced in CSS are inlined as data-URLs in the compiled output.
