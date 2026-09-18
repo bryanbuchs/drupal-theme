@@ -1,4 +1,3 @@
-import { execSync } from 'node:child_process'
 import StyleDictionary from 'style-dictionary'
 
 const TOKENS_DIR = 'tokens/definitions'
@@ -49,5 +48,3 @@ const themesSd = new StyleDictionary({
   }
 })
 await themesSd.buildAllPlatforms()
-
-execSync(`npx oxfmt ${OUTPUT_DIR}/*.css`, { stdio: 'inherit' })

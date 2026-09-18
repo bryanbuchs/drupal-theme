@@ -11,6 +11,7 @@
     "prebuild": "npm run build:tokens",
     "build:storybook": "storybook build --test",
     "build:tokens": "node scripts/build-tokens.js",
+    "postbuild:tokens": "oxfmt tokens/css/*.css",
     "lint": "oxlint components/",
     "lint:fix": "oxlint components/ --fix",
     "format": "oxfmt components/",
