@@ -35,7 +35,7 @@
     "style-dictionary": "^5.5.3",
     "tinyglobby": "^0.2.17",
     "twig": "3.0.0",
-    "vite": "^8.3.0",
+    "vite": "^8.3.3",
     "vite-plugin-twig-drupal": "^1.7.0"
   },
   "nano-staged": {
